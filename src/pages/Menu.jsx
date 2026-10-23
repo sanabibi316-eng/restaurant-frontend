@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import API from '../api/axios';
+import API, { BACKEND_URL } from '../api/axios';
 import toast from 'react-hot-toast';
 import {
   FiPlus,
@@ -94,7 +94,7 @@ const Menu = () => {
       preparationTime: item.preparationTime || 15,
       discount: item.discount || 0
     });
-    setPreview(item.image ? `http://localhost:5000${item.image}` : '');
+    setPreview(item.image ? `${BACKEND_URL}` : '');
     setImage(null);
     setModal(true);
   };
@@ -363,7 +363,7 @@ const Menu = () => {
               >
                 {item.image ? (
                   <img
-                    src={`http://localhost:5000${item.image}`}
+                    src={`${BACKEND_URL}`}
                     alt={item.name}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />

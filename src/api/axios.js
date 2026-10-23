@@ -1,7 +1,11 @@
 import axios from 'axios';
 
+// Get base URL from environment or default to production backend
+export const BACKEND_URL =
+  import.meta.env.VITE_API_URL || 'https://restaurant-backend-fawn-chi.vercel.app';
+
 const API = axios.create({
-  baseURL: '/api',
+  baseURL: `${BACKEND_URL}/api`,
   timeout: 15000
 });
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import API from '../api/axios';
+import API, { BACKEND_URL } from '../api/axios';
 import toast from 'react-hot-toast';
 import {
   FiPlus,
@@ -53,7 +53,7 @@ const Categories = () => {
       description: cat.description || '',
       sortOrder: cat.sortOrder || 0
     });
-    setPreview(cat.image ? `http://localhost:5000${cat.image}` : '');
+    setPreview(cat.image ? `${BACKEND_URL}` : '');
     setImage(null);
     setModal(true);
   };
@@ -311,7 +311,7 @@ const Categories = () => {
               >
                 {cat.image ? (
                   <img
-                    src={`http://localhost:5000${cat.image}`}
+                    src={`${BACKEND_URL}`}
                     alt={cat.name}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
